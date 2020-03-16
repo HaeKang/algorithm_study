@@ -24,7 +24,7 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		int x;	// 동생위치
 		cin >> x;
-		int diff = x - s;	// °Å¸®Â÷ÀÌ
+		int diff = x - s;	// 거리차이
 		if (diff < 0) {
 			diff = -diff;
 		}
