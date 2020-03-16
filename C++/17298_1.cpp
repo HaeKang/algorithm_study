@@ -26,8 +26,8 @@ int main() {
 			s.push(i);
 		}
 
-		while (!s.empty() && a[s.top] < a[i]) {
-			ans[s.top] = a[i];	// s.top의 오큰수는 a[i]
+		while (!s.empty() && a[s.top()] < a[i]) {
+			ans[s.top()] = a[i];	// s.top의 오큰수는 a[i]
 			s.pop();
 		}
 		s.push(i);

@@ -1,7 +1,8 @@
-﻿import java.util.*;
+package study_0315;
+import java.util.*;
 import java.io.*;
 
-public class Main {
+public class study_9093 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		Stack<Character> s = new Stack<Character>();
@@ -14,7 +15,7 @@ public class Main {
 			String str = br.readLine() + '\n';
 			for(char ch : str.toCharArray()) {
 				if(ch == ' ' || ch == '\n') {
-					while(!s.empty()) {
+					while(!s.isEmpty()) {
 						bw.write(s.pop());
 					}
 					
