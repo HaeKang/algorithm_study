@@ -22,9 +22,9 @@ int main() {
 	vector<int> a(n);
 
 	for (int i = 0; i < n; i++) {
-		int x;	// µ¿»ý À§Ä¡
+		int x;	// ë™ìƒìœ„ì¹˜
 		cin >> x;
-		int diff = x - s;	// °Å¸®Â÷ÀÌ
+		int diff = x - s;	// Â°Ã…Â¸Â®Ã‚Ã·Ã€ÃŒ
 		if (diff < 0) {
 			diff = -diff;
 		}
