@@ -6,7 +6,7 @@ const long long mod = 1000000009LL;
 const int limit = 100000;
 
 int main() {
-	ios_base::sync_with_stdio;
+	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 
 	for (int i = 1; i <= limit; i++) {

@@ -5,6 +5,10 @@ long long d[101][10];	// 길이 , 마지막숫자
 long long mod = 1000000000;
 
 int main() {
+
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+
 	int n;
 	cin >> n;
 
