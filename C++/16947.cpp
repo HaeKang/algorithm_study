@@ -12,6 +12,7 @@ int go(int x, int p) {
 
 	// -2: found cycle and not included
 	// -1: not found cycle
+	// 0~n-1: found cycle and start index
 
 	if (check[x] == 1) {
 		return x;	// cycle의 시작 index return
