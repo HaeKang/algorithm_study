@@ -10,8 +10,11 @@ void insertion_sort(int list[], int n) {
 			if (list[j] > tmp) {
 				list[j + 1] = list[j];
 			}
+			else {
+				break;
+			}
 		}
-		list[j + 1] = tmp;	// j가 -1이 되서 끝나므로 j+1
+		list[j + 1] = tmp;	
 	}
 }
 
