@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <vector>
 #include <cstring>
 #include <algorithm>
 
@@ -9,7 +8,6 @@
 using namespace std;
 
 int v[MAX][MAX];
-bool check[5000];
 
 int n, m;
 
@@ -20,7 +18,7 @@ void kevin() {
 				if (i == j) {
 					continue;
 				}
-				else if (v[i][k] && v[k][j]) {
+				else if (v[i][k] != 0 && v[k][j] != 0) {
 					if (v[i][j] == 0) {
 						v[i][j] = v[i][k] + v[k][j];
 					}
