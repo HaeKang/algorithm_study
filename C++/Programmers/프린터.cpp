@@ -44,3 +44,43 @@ int solution(vector<int> priorities, int location) {
     
     return answer;
 }
+
+
+// 우선순위 큐 사용
+#include <string>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+queue<pair<int,int>> wait;
+priority_queue<int> prior;
+
+int solution(vector<int> priorities, int location) {
+    int answer = 0;
+    for(int i=0; i<priorities.size(); i++){
+        wait.push(make_pair(i, priorities[i]));   
+        prior.push(priorities[i]);
+    }
+    
+    while(!wait.empty()){
+        int num = wait.front().first;
+        int num_p = wait.front().second;
+        
+        int top_p = prior.top();
+    
+        wait.pop();
+        
+        if(num_p < top_p){
+            wait.push(make_pair(num, num_p));
+        } else {
+            answer++;
+            prior.pop();
+            if(location == num){
+                return answer;
+            }
+        }
+    }
+    
+    return answer;
+}
