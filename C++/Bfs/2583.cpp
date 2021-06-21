@@ -4,8 +4,8 @@
 #include <algorithm>
 using namespace std;
 
-int m, n, k, cnt;	// m : col(x), n : row(y)
-int arr[102][102];	// [n][m] == [y][x]
+int m, n, k, cnt;	
+int arr[102][102];	// [y][x]
 bool check[102][102];
 int dx[4] = { 0,0,-1,1 };
 int dy[4] = { 1,-1,0,0 };
