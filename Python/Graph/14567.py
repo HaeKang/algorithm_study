@@ -18,14 +18,14 @@ for i in range(m):
 # 위상정렬 시작
 q = deque()
 
-for i in range(n+1):
+for i in range(1, n+1):
     if indegree[i] == 0:
         q.append([i, 1])    # 노드번호, 학기 수
 
 # 답 [노드번호, 학기 수]
 result = []
 
-for i in range(n+1):
+for i in range(n):
 
     now = q.popleft()
     node = now[0]
@@ -45,5 +45,5 @@ for i in range(n+1):
 # 노드순으로 sort
 result.sort()
 
-for i in range(1, n+1):
+for i in range(n):
     print(result[i][1], end=' ')
