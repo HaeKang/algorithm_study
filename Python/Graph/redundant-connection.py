@@ -1,4 +1,5 @@
 '''
+https://leetcode.com/problems/redundant-connection/
 크루스칼에서 많이 쓰던 그 부모루트 찾기, 사이클 찾기 활용
 edges들 연결하다가 사이클 발생 시 답 출력
 '''
@@ -20,11 +21,20 @@ class Solution:
             if parent_a == parent_b:
                 return True
 
-            parent[a] = parent_b
-            parent[parent_a] = parent_b
+            # 개선완료
+            # 8/10 -> parent[a] = parent_b 이런 코드는 불필요함. 의미없음!! 오히려 의도에 맞지않는 코드임. 왜 이렇게 했을까..?
+            # 맨 처음 하고싶었던 의도대로, 작은 노드를 기준으로 부모 정하도록 해줌
+            if parent_a > parent_b:
+                parent[parent_a] = parent_b
+            else:
+                parent[parent_b] = parent_a
             return False
 
-            # 개선 전
+            # 개선 전2
+            # parent[a] = parent_b
+            # parent[parent_a] = parent_b
+
+            # 개선 전1
             # if parent_a < parent_b:
             #     parent[b] = parent_a
             #     parent[parent_b] = parent_a
