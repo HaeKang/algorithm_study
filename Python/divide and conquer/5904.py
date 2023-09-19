@@ -9,9 +9,7 @@ moo_str = ["m", "o", "o"]
 
 # n : 찾고자 하는 n번째 글자
 # depth : 차수
-# l : 이전 차수 길이
-
-
+# prev_len : 이전 차수 길이
 def moo(n, depth, prev_len):
     if n <= 3:
         return(moo_str[n - 1])
