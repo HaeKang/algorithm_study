@@ -1,3 +1,77 @@
+# bfs 풀이
+# https://www.acmicpc.net/problem/14502
+# bfs + 조합
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+# n : row, m : col
+n, m = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(n)]
+
+dr = [0, 0, -1, 1]
+dc = [1, -1, 0, 0]
+
+ans = 0
+
+# 처음 안전영역의 갯수
+init_zero_cnt = 0
+for i in range(n):
+    for j in range(m):
+        if arr[i][j] == 0:
+            init_zero_cnt += 1
+
+
+def bfs_virus(): 
+
+    checked = [[0] * m for _ in range(n)]
+    append_virus_cnt = 0
+
+    # 바이러스 확산 >> bfs
+    q = deque()
+
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] == 2:
+               q.append([i, j])
+               checked[i][j] = 1
+
+    while q:
+        now_r, now_c = q.popleft()
+
+        for i in range(4):
+            next_r = now_r + dr[i]
+            next_c = now_c + dc[i]
+
+            if 0 <= next_r < n and 0 <= next_c < m and checked[next_r][next_c] == 0:
+                if arr[next_r][next_c] == 0:
+                    q.append([next_r, next_c])
+                    checked[next_r][next_c] = 1
+                    append_virus_cnt += 1
+    
+    global ans, init_zero_cnt
+    # 바이러스 수, 벽 갯수 제외
+    ans = max(ans, init_zero_cnt -  append_virus_cnt - 3)
+
+
+# 벽 3개 세우기
+def make_wall(count):
+    if count == 3:
+        bfs_virus()
+        return
+    
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] == 0:
+                arr[i][j] = 1
+                make_wall(count + 1)
+                arr[i][j] = 0
+
+
+make_wall(0)
+print(ans)
+
+# dfs 풀이
 import copy
 from itertools import combinations
 
