@@ -1,3 +1,41 @@
+# https://www.acmicpc.net/problem/2606
+
+# dfs 풀이
+import sys
+sys.setrecursionlimit(10**7)
+input = sys.stdin.readline
+
+answer = 0
+
+com_cnt = int(input())
+edge_cnt = int(input())
+
+arr = [[] for _ in range(com_cnt + 1)]
+checked = [0 for _ in range(com_cnt + 1)]
+
+for _ in range(edge_cnt):
+    c1, c2 = map(int, input().split())
+    arr[c1].append(c2)
+    arr[c2].append(c1)
+
+def dfs(com):
+    global answer
+
+
+    for next_node in arr[com]:
+        if checked[next_node] == 0:
+            checked[next_node] = 1
+            answer += 1
+            dfs(next_node)
+
+    return
+
+checked[1] = 1
+dfs(1)
+print(answer)
+
+
+# bfs 풀이
 from collections import deque
 
 # 컴퓨터 수
